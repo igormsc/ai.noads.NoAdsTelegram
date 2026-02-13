@@ -1,0 +1,33 @@
+NoAdsTelegram
+
+This Xposed module is a tiny rebellion — a way to claw back some of that original spirit of freedom promised by Telegram at the beginning, one hook at a time.
+
+What it does
+
+    🚫 Kills sponsored messages – no more "promoted channels" in your chat list.
+
+    🎥 Stops video ads – watch those stories and videos ad‑free.
+
+    🔁 Enables forwarding & saving – even on content that was locked down.
+
+    💾 Lets you save stories – because you might actually want to keep them.
+
+    🗑️ Prevents message deletion (a.k.a. recall) – if someone said it, they said it.
+
+    👻 Optionally hides the whole stories section – out of sight, out of mind.
+
+    🎛️ Everything is configurable – you decide which parts of this unholy magic to enable.
+
+Compatibility
+
+	Works with the official Telegram app v12.4.1.
+
+Installation
+
+    Install the module in your Xposed framework (LSPosed recommended).
+
+    Enable the module for org.telegram.messenger.
+
+    Reboot (or force-stop Telegram) and enjoy.
+
+    Look for the NoAdsTelegram icon in your app drawer (or system settings) – that's where you tweak the hooks.

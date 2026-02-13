@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NoAdsTelegram</string>
+    <string name="xposed_description">NO ads Telegram</string>
+    <string-array name="scope">
+        <item>org.telegram.messenger</item>
+    </string-array>
+</resources>
