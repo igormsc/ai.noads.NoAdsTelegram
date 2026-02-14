@@ -17,5 +17,4 @@ public class DisableVideoAds {
 
         return false;
     }
-
 }

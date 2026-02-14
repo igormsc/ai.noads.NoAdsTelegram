@@ -12,4 +12,5 @@ public class DisableSponsoredMessages {
         hookMethod(cl, "org.telegram.messenger.MessagesController", "getSponsoredMessagesCount", param -> param.setResult(0));
     }
 
+
 }

@@ -9,7 +9,9 @@ public enum HookConfig {
     DISABLE_VIDEO_ADS("disable_video_ads", "Disable ads: on video", true),
     DISABLE_CHANNEL_SWITCHING("disable_channel_switching", "Disable channel switching", true),
     DISABLE_MESSAGE_DELETE("disable_message_delete", "Disable message deletion", true),
-    HIDE_STORIES("hide_stories", "Hide stories section", false);
+    HIDE_STORIES("hide_stories", "Hide stories section", false),
+    HIDE_PINNED_MESSAGES("hide_pinned_messages", "Hide pinned messages", false),
+    HIDE_TRANSLATE_DIALOG("hide_translate_dialog", "Hide translate dialog", false);
 
     public final String key;
     public final String title;
