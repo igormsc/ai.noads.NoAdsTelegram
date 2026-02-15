@@ -11,7 +11,12 @@ public enum HookConfig {
     DISABLE_MESSAGE_DELETE("disable_message_delete", "Disable message deletion", true),
     HIDE_STORIES("hide_stories", "Hide stories section", false),
     HIDE_PINNED_MESSAGES("hide_pinned_messages", "Hide pinned messages", false),
-    HIDE_TRANSLATE_DIALOG("hide_translate_dialog", "Hide translate dialog", false);
+    HIDE_TRANSLATE_DIALOG("hide_translate_dialog", "Hide translate dialog", false),
+    HIDE_MUTE_BUTTON("hide_mute_button", "Hide mute button", false),
+    HIDE_BOTTOM_OVERLAY("hide_bottom_overlay", "Hide bottom overlay", false),
+    DISABLE_SWIPE_PROFILE("disable_swipe_profile", "Disable swipe profile", false),
+    DISABLE_SWIPE_CHANNEL("disable_swipe_channel", "Disable swipe channel", false);
+
 
     public final String key;
     public final String title;
