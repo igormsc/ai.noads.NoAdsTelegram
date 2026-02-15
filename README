@@ -4,23 +4,34 @@ This Xposed module is a tiny rebellion — a way to claw back some of that origi
 
 What it does
 
-    🚫 Kills sponsored messages – no more "promoted channels" in your chat list.
+    🔁 Enable forwarding & saving – even on content that was locked down.
 
-    🎥 Stops video ads – watch those stories and videos ad‑free.
+    💾 Enable saving stories – download and keep stories for later.
 
-    🔁 Enables forwarding & saving – even on content that was locked down.
+    🚫 Disable sponsored messages – no more "promoted channels" cluttering your chat list.
 
-    💾 Lets you save stories – because you might actually want to keep them.
+    🎥 Disable video ads – watch videos and stories ad‑free.
 
-    🗑️ Prevents message deletion (a.k.a. recall) – if someone said it, they said it.
+    🗑️ Disable message deletion – if someone said it, they said it. (a.k.a. anti‑recall)
 
-    👻 Optionally hides the whole stories section – out of sight, out of mind.
+    🔄 Disable channel switching – prevent accidental channel changes via swipe or tap.
 
-    📌 Hides pinned messages – clean up those chat headers, one less distraction.
+    👻 Hide stories section – out of sight, out of mind.
 
-    🌐 Hides the translate dialog – no more "Translate this message" popups cluttering your view.
+    📌 Hide pinned messages – clean up those chat headers, one less distraction.
+
+    🌐 Hide translate dialog – no more "Translate this message" popups.
+
+    🔇 Hide mute button – remove the mute notification button from chats.
+
+    ⬇️ Hide bottom overlay – hide the media/attachment overlay when you don't need it.
+
+    👤 Disable swipe profile – stop accidentally opening profiles by swiping.
+
+    📱 Disable swipe channel – disable swiping gestures on channels (for those with twitchy thumbs).
 
     🎛️ Everything is configurable – you decide which parts of this unholy magic to enable.
+
 
 Compatibility
 
