@@ -4,38 +4,61 @@ This Xposed module is a tiny rebellion — a way to claw back some of that origi
 
 What it does
 
-    🔁 Enable forwarding & saving – even on content that was locked down.
+🚫 Ads? What ads?
 
-    💾 Enable saving stories – download and keep stories for later.
+    Disable sponsored messages – no more "promoted channels" in your chat list.
 
-    🚫 Disable sponsored messages – no more "promoted channels" cluttering your chat list.
+    Disable video ads – watch videos ad‑free.
 
-    🎥 Disable video ads – watch videos and stories ad‑free.
+💬 Messaging – take back control
 
-    🗑️ Disable message deletion – if someone said it, they said it. (a.k.a. anti‑recall)
+    Enable forwarding & saving – even on content that was locked down.
 
-    🔄 Disable channel switching – prevent accidental channel changes via swipe or tap.
+    Disable message deletion – if someone said it, they said it. (a.k.a. anti‑recall)
 
-    👻 Hide stories section – out of sight, out of mind.
+    Disable chat deletion – stop chats from disappearing… but beware: if you delete a chat with this on, it might just come back after a restart. (Spoopy!)
 
-    📌 Hide pinned messages – clean up those chat headers, one less distraction.
+🔒 Secret Chat – now less secret (for you)
 
-    🌐 Hide translate dialog – no more "Translate this message" popups.
+    Disable secret chat message deletion – keep those ephemeral messages forever.
 
-    🔇 Hide mute button – remove the mute notification button from chats.
+    Disable self‑destruct – self‑destruct timers now hit zero and just… stop. Like a movie cliffhanger.
 
-    ⬇️ Hide bottom overlay – hide the media/attachment overlay when you don't need it.
+    Enable secret media save – save photos and videos from secret chats. Shhh.
 
-    👤 Disable swipe profile – prevent accidentally closing the profile by swiping (keep it open).
+📸 Stories – your way
 
-    📱 Disable swipe channel – disable swiping gestures on channels (for those with twitchy thumbs).
+    Enable saving stories – download and keep stories for later.
 
-    🎛️ Everything is configurable – you decide which parts of this unholy magic to enable.
+    Hide stories section – out of sight, out of mind.
 
+🎨 UI – declutter your Telegram
+
+    Disable channel switching – prevent accidental channel changes via swipe or tap.
+
+    Hide pinned messages – clean up those chat headers.
+
+    Hide translate dialog – no more "Translate this" popups.
+
+    Hide mute button – remove the mute notification button from chats.
+
+    Hide bottom overlay – hide the bottom overlay when you don't need it.
+
+    Disable swipe profile – stop accidentally closing the profile by swiping (keep it open).
+
+    Disable swipe channel – disable swiping gestures on channels (for those with twitchy thumbs).
+
+👤 Privacy – go ghost
+
+    Hide typing – stop showing "typing…" to others. Your thoughts, your secret.
+
+🎛️ Everything is configurable
+
+    All these options are neatly grouped in the NoAdsTelegram settings – – you decide which experiments to run.
 
 Compatibility
 
-	Works with the official Telegram app v12.4.1.
+    Works with the official Telegram app (tested on v12.4.1)
 
 Installation
 

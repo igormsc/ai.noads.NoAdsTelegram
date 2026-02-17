@@ -1,6 +1,5 @@
 plugins {
     id("com.android.application") version "8.13.2"
-    id("org.jetbrains.kotlin.android") version "2.2.10"
 }
 
 android {
@@ -11,8 +10,8 @@ android {
         applicationId = "ai.noads.telegram"
         minSdk = 29
         targetSdk = 34
-        versionCode = 6
-        versionName = "0.666"
+        versionCode = 8
+        versionName = "0.8"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -20,6 +19,7 @@ android {
 
     buildTypes {
         release {
+           // isShrinkResources = true
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -53,5 +53,5 @@ android {
 }
 
 dependencies {
-    compileOnly(files("/NoAds/xposedbridge/api82/api-82.jar"))
+    compileOnly(files("/repo/NoAds/xposedbridge/api82/api-82.jar"))
 }

@@ -39,7 +39,15 @@ public class EnableSaveStories {
             hookMenuCreationMethods();
             forcePremiumStatus(cl);
             blockPremiumBlockedNotifications();
+            hookAllowScreenshots(cl);
 
+        } catch (Throwable ignored) {}
+    }
+
+
+    private static void hookAllowScreenshots(ClassLoader cl) {
+        try {
+            hookMethod(cl, "org.telegram.ui.Stories.PeerStoriesView$StoryItemHolder", "allowScreenshots", param -> param.setResult(true));
         } catch (Throwable ignored) {}
     }
 

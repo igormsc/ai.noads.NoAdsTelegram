@@ -1,5 +1,10 @@
 package ai.noads.telegram;
 
+import ai.noads.telegram.hooks.DisableChatDeletion;
+import ai.noads.telegram.hooks.DisableSecretChatMessageDeletion;
+import ai.noads.telegram.hooks.DisableSelfDestruct;
+import ai.noads.telegram.hooks.EnablePrivacy;
+import ai.noads.telegram.hooks.SecretMediaSave;
 import ai.noads.telegram.config.HookConfig;
 import ai.noads.telegram.hooks.DisableChannelSwipeBack;
 import ai.noads.telegram.hooks.DisableChannelSwitching;
@@ -41,10 +46,14 @@ public class NoAdsTelegram implements IXposedHookLoadPackage {
         if (HookConfig.HIDE_BOTTOM_OVERLAY.isEnabled()) safeInit(() -> HideBottomOverlay.init(cl));
         if (HookConfig.DISABLE_SWIPE_PROFILE.isEnabled()) safeInit(() -> DisableProfileSwipeBack.init(cl));
         if (HookConfig.DISABLE_SWIPE_CHANNEL.isEnabled()) safeInit(() -> DisableChannelSwipeBack.init(cl));
+        if (HookConfig.DISABLE_CHAT_DELETION.isEnabled()) safeInit(() -> DisableChatDeletion.init(cl));
+        if (HookConfig.DISABLE_SECRET_CHAT_MESSAGE_DELETION.isEnabled()) safeInit(() -> DisableSecretChatMessageDeletion.init(cl));
+        if (HookConfig.DISABLE_SELF_DESTRUCT.isEnabled()) safeInit(() -> DisableSelfDestruct.init(cl));
+        if (HookConfig.ENABLE_SECRET_MEDIA_SAVE.isEnabled()) safeInit(() -> SecretMediaSave.init(cl));
+        if (HookConfig.HIDE_TYPING.isEnabled()) safeInit(() -> EnablePrivacy.hideTyping(cl));
 
-        //   safeInit(() -> DebugViewLogger.init(cl));
-       // safeInit( () -> DisableLeftEdgeSwipe.init(cl));
-
+ //       if (HookConfig.HIDE_ONLINE_STATUS.isEnabled()) safeInit(() -> EnablePrivacy.hideOnlineStatus(cl , HookConfig.HIDE_ONLINE_STATUS_ALWAYS_OFFLINE.isEnabled()));
+ //       if (HookConfig.HIDE_VIEW_STORY.isEnabled()) safeInit(() -> EnablePrivacy.hideStoryViewStatus(cl));
 
     }
 

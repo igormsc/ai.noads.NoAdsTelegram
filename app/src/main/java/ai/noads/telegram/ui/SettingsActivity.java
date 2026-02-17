@@ -1,5 +1,6 @@
 package ai.noads.telegram.ui;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -9,6 +10,12 @@ import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 import ai.noads.telegram.config.HookConfig;
 
@@ -37,6 +44,7 @@ public class SettingsActivity extends Activity {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private View createPreferenceView() {
         try {
             ScrollView scrollView = new ScrollView(this);
@@ -44,30 +52,48 @@ public class SettingsActivity extends Activity {
             mainLayout.setOrientation(LinearLayout.VERTICAL);
             mainLayout.setPadding(dpToPx(20), dpToPx(20), dpToPx(20), dpToPx(20));
 
+            Map<HookConfig.Category, List<HookConfig>> grouped = new LinkedHashMap<>();
             for (HookConfig hook : HookConfig.getAll()) {
-                LinearLayout switchLayout = new LinearLayout(this);
-                switchLayout.setOrientation(LinearLayout.HORIZONTAL);
-                switchLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                HookConfig.Category cat = hook.category;
+                if (!grouped.containsKey(cat)) grouped.put(cat, new ArrayList<>());
+                Objects.requireNonNull(grouped.get(cat)).add(hook);
+            }
 
-                TextView textView = new TextView(this);
-                textView.setText(hook.title);
-                textView.setTextSize(16);
-                textView.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
+            for (HookConfig.Category category : HookConfig.Category.values()) {
+                List<HookConfig> hooks = grouped.get(category);
+                if (hooks == null || hooks.isEmpty()) continue;
 
-                Switch switchView = new Switch(this);
-                boolean isEnabled = hook.isEnabledInActivity(this);
-                switchView.setChecked(isEnabled);
-                switchView.setTag(hook.key);
-                switchView.setOnCheckedChangeListener((buttonView, checked) -> hook.setEnabled(checked, SettingsActivity.this));
+                TextView header = new TextView(this);
+                header.setText(category.displayName);
+                header.setTextSize(18);
+                header.setTypeface(null, android.graphics.Typeface.BOLD);
+                header.setPadding(0, dpToPx(16), 0, dpToPx(8));
+                mainLayout.addView(header);
 
-                switchLayout.addView(textView);
-                switchLayout.addView(switchView);
-                mainLayout.addView(switchLayout);
+                for (HookConfig hook : hooks) {
+                    LinearLayout switchLayout = new LinearLayout(this);
+                    switchLayout.setOrientation(LinearLayout.HORIZONTAL);
+                    switchLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 
-                View spacer = new View(this);
-                spacer.setLayoutParams(new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT, dpToPx(10)));
-                mainLayout.addView(spacer);
+                    TextView textView = new TextView(this);
+                    textView.setText(hook.title);
+                    textView.setTextSize(16);
+                    textView.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1.0f));
+
+                    Switch switchView = new Switch(this);
+                    boolean isEnabled = hook.isEnabledInActivity(this);
+                    switchView.setChecked(isEnabled);
+                    switchView.setTag(hook.key);
+                    switchView.setOnCheckedChangeListener((buttonView, checked) -> hook.setEnabled(checked, SettingsActivity.this));
+
+                    switchLayout.addView(textView);
+                    switchLayout.addView(switchView);
+                    mainLayout.addView(switchLayout);
+
+                    View spacer = new View(this);
+                    spacer.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, dpToPx(8)));
+                    mainLayout.addView(spacer);
+                }
             }
 
             TextView restartNote = new TextView(this);
@@ -75,14 +101,13 @@ public class SettingsActivity extends Activity {
             restartNote.setTextSize(14);
             restartNote.setTextColor(0xFFFF4444);
             restartNote.setPadding(0, dpToPx(20), 0, 0);
-            restartNote.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             mainLayout.addView(restartNote);
 
             scrollView.addView(mainLayout);
             return scrollView;
         } catch (Exception e) {
             TextView errorView = new TextView(this);
-            errorView.setText("Error loading settings: " + e.getMessage());
+            errorView.setText("Error loading settings.");
             errorView.setPadding(dpToPx(20), dpToPx(20), dpToPx(20), dpToPx(20));
             return errorView;
         }
